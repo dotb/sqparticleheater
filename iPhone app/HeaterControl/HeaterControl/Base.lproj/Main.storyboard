@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,38 +19,55 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aaw-eS-Oji">
-                                <frame key="frameInset" minX="38" minY="67" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="??" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="aaw-eS-Oji">
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="95"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5tL-Kq-5zV">
-                                <frame key="frameInset" minX="233" minY="67" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eI5-wt-zaC">
-                                <frame key="frameInset" minX="161" minY="167" width="53" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eI5-wt-zaC">
                                 <state key="normal" title="Refresh"/>
                                 <connections>
                                     <action selector="refreshButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ar0-9d-ccH"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="temp" translatesAutoresizingMaskIntoConstraints="NO" id="jmo-pL-dgH"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a8D-po-XER" userLabel="LoadingView">
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="uaL-xA-Rat"/>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.18873922413793104" blue="0.0" alpha="0.17256759751773049" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="uaL-xA-Rat" firstAttribute="centerX" secondItem="a8D-po-XER" secondAttribute="centerX" id="8zJ-Gs-7Py"/>
+                                    <constraint firstItem="uaL-xA-Rat" firstAttribute="centerY" secondItem="a8D-po-XER" secondAttribute="centerY" id="ZM0-R9-VF9"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="aaw-eS-Oji" firstAttribute="top" secondItem="jmo-pL-dgH" secondAttribute="bottom" constant="2" id="35m-Sq-Vcp"/>
+                            <constraint firstItem="a8D-po-XER" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="7IC-Vu-iqH"/>
+                            <constraint firstAttribute="trailing" secondItem="a8D-po-XER" secondAttribute="trailing" id="7kU-Eh-7U0"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="aaw-eS-Oji" secondAttribute="leading" id="G4e-C2-7sj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="aaw-eS-Oji" secondAttribute="trailing" id="NGl-Is-JLX"/>
+                            <constraint firstAttribute="bottom" secondItem="a8D-po-XER" secondAttribute="bottom" id="VH7-VI-Y7E"/>
+                            <constraint firstItem="jmo-pL-dgH" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="150" id="cv2-sw-YNc"/>
+                            <constraint firstItem="jmo-pL-dgH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="d8b-he-2pq"/>
+                            <constraint firstItem="eI5-wt-zaC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ft4-Lo-kwx"/>
+                            <constraint firstItem="eI5-wt-zaC" firstAttribute="top" secondItem="aaw-eS-Oji" secondAttribute="bottom" constant="27" id="hSN-P2-uh0"/>
+                            <constraint firstItem="a8D-po-XER" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="tek-vc-9Zk"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="humidLabel" destination="5tL-Kq-5zV" id="c4A-2I-L9R"/>
+                        <outlet property="loadingView" destination="a8D-po-XER" id="DN0-p3-yFj"/>
                         <outlet property="tempLabel" destination="aaw-eS-Oji" id="x5a-L8-B6Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="37.331334332833585"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="temp" width="33" height="69"/>
+    </resources>
 </document>
